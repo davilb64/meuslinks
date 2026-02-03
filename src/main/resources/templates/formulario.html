@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Link</title>
+    <style>
+        body { font-family: sans-serif; max-width: 400px; margin: 0 auto; padding: 20px; }
+        input { width: 100%; padding: 10px; margin: 5px 0 15px 0; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<h2>Adicionar Link</h2>
+
+<form action="/salvar" method="post" th:object="${link}">
+
+    <label>Texto do Botão:</label>
+    <input type="text" th:field="*{texto}" placeholder="Ex: Meu LinkedIn" required />
+
+    <label>URL (Endereço):</label>
+    <input type="url" th:field="*{url}" placeholder="https://..." required />
+
+    <button type="submit">Salvar Link</button>
+</form>
+
+<br>
+<a href="/">Voltar</a>
+
+</body>
+</html>

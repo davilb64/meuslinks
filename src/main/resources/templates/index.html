@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <head>
+    <meta charset="UTF-8">
+    <title>Meus Links</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; }
+        .btn-link { display: block; background: #007bff; color: white; padding: 15px; margin: 10px 0; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-link:hover { background: #0056b3; }
+        .btn-add { display: inline-block; margin-bottom: 20px; color: #555; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<h1>Meus Links Favoritos</h1>
+
+<a href="/novo" class="btn-add">+ Adicionar Novo Link</a>
+
+<div th:each="item : ${listaLinks}">
+    <a th:href="${item.url}" class="btn-link" target="_blank">
+        <span th:text="${item.texto}">Texto do Link</span>
+    </a>
+</div>
+
+<p th:if="${listaLinks.empty}">Nenhum link cadastrado ainda.</p>
+
+</body>
+</html>
